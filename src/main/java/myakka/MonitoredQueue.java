@@ -68,14 +68,14 @@ public class MonitoredQueue
 	/*
 	 * We track queue depth in this AtomicInteger.
 	 * 
-     * This approach doubles the offer() and poll() processing 
-     * times, although they still remain O(1) operations. Note 
-     * that it is technically possible that this strategy will
-     * cut the total possible throughput of this queue in half,
-     * due to the need to access the AtomicInteger's backing
-     * value on both the enqueue() and dequeue() sides of this
-     * queue. (In a partially filled linked-list based queue, 
-     * head and tail reside at different memory locations.)
+	 * This approach doubles the offer() and poll() processing 
+	 * times, although they still remain O(1) operations. Note 
+	 * that it is technically possible that this strategy will
+	 * cut the total possible throughput of this queue in half,
+	 * due to the need to access the AtomicInteger's backing
+	 * value on both the enqueue() and dequeue() sides of this
+	 * queue. (In a partially filled linked-list based queue, 
+	 * head and tail reside at different memory locations.)
 	 * 
 	 * 
 	 * In a cleaner implementation, we would probably extend 
