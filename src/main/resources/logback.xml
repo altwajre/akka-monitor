@@ -1,0 +1,17 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+        <pattern>%d{"HH:mm:ss,SSS"} %-5level [%replace(%X{akkaSource:--}){'akka://default',''}] %logger{36} \t- %msg%n</pattern>
+    </encoder>
+    </appender>
+
+    <!-- log akka /user messaging statistics at trace level -->
+    <!--logger name="msgstats.user" level="trace"/-->
+
+    <!-- enable stats logging, test logging -->    
+    <logger name="myakka" level="debug"/>
+    
+    <root level="debug">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
